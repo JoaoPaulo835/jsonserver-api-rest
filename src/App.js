@@ -2,6 +2,8 @@ import { LogoIcon } from "./assets/icons"
 import CrudUser from "./components/CrudUser"
 import "./styles/App.css"
 
+//aqui é responsável pelo estilo do app
+
 function App() {
 	return (
 		<>

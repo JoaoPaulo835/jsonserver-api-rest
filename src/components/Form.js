@@ -1,21 +1,24 @@
 import React, { useState } from "react"
 import DropComapies from "./DropCompanies"
+//realiza as importações necesárias do React
 
-const Form = ({ userData = {}, postUser, updateUser }) => {
+const Form = ({ userData = {}, postUser, updateUser }) => { //aqui demonstra que o Form aceita algumas props que são:
+	//userData, postUser e updateUser
 	const [user, setUser] = useState({
-		name: userData.name ?? "",
-		username: userData.username ?? "",
-		email: userData.email ?? "",
-		phone: userData.phone ?? "",
-		companiesId: userData.companiesId ?? "0",
+		name: userData.name ?? "", // o nome
+		username: userData.username ?? "", // o nome de usuário
+		email: userData.email ?? "", //email
+		phone: userData.phone ?? "", //telefone
+		companiesId: userData.companiesId ?? "0", //Id
 	})
 
-	const handleValue = e => {
-		setUser({ ...user, [e.target.name]: e.target.value })
+	const handleValue = e => { //utiliza a mudança de qualquer campo no formulário a ser preenchido
+		setUser({ ...user, [e.target.name]: e.target.value }) //seleciona o valor e o nome
 	}
 
 	const submitUser = e => {
-		e.preventDefault()
+		e.preventDefault() //previne se a seleção é válida para o formulário
+
 
 		if (user.companiesId === "0") return
 
@@ -25,8 +28,7 @@ const Form = ({ userData = {}, postUser, updateUser }) => {
 			postUser(user)
 		}
 	}
-
-	return (
+	return ( //submete os valores para cada solicitação (nome, email, telefone) isso fica armazenado o db.json
 		<form onSubmit={submitUser} className='row'>
 			<input
 				type='text'
@@ -60,4 +62,4 @@ const Form = ({ userData = {}, postUser, updateUser }) => {
 	)
 }
 
-export default Form
+export default Form //export necessário para o formulário

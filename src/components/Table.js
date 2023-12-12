@@ -1,13 +1,14 @@
 import React from "react"
 import Form from "./Form"
+//imports do react necessários
 
-const Table = ({ users, postUser, updateUser, deleteUser }) => {
+const Table = ({ users, postUser, updateUser, deleteUser }) => { //a tabela aceita o usuário, atualização e delete
 	const showUpdateUser = id => {
-		const form = document.getElementsByClassName(`show-form-${id}`)
+		const form = document.getElementsByClassName(`show-form-${id}`) //se baseia no id do usuário
 		form[0].classList.toggle("hide-form")
 	}
 
-	const Row = ({ user }) => {
+	const Row = ({ user }) => { // o row organiza as informaçoes solicitadas como: nome, email, telefone, nome da company.
 		return (
 			<>
 				<div className='row'>
@@ -26,7 +27,7 @@ const Table = ({ users, postUser, updateUser, deleteUser }) => {
 			</>
 		)
 	}
-
+// retorna a tabela com as informações citadas
 	return (
 		<div className='table'>
 			<div className='titles'>
@@ -42,5 +43,5 @@ const Table = ({ users, postUser, updateUser, deleteUser }) => {
 		</div>
 	)
 }
-
-export default Table
+//esse mapeamento se dá com o id
+export default Table//aqui tem o export da tabela
